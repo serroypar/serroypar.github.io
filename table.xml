@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data [
+<!ELEMENT data (record*, Source)>
+<!ELEMENT record (Month, Min_C, Max_C, Rain_mm, Hurricane_Season)>
+<!ELEMENT Month (#PCDATA)>
+<!ELEMENT Min_C (#PCDATA)>
+<!ELEMENT Max_C (#PCDATA)>
+<!ELEMENT Rain_mm (#PCDATA)>
+<!ELEMENT Hurricane_Season (#PCDATA)>
+<!ELEMENT Source (#PCDATA)>
+]>
+
+<data>
+  <record>
+    <Month>January</Month>
+    <Min_C>17</Min_C>
+    <Max_C>25</Max_C>
+    <Rain_mm>51</Rain_mm>
+    <Hurricane_Season>NO</Hurricane_Season>
+  </record>
+  <record>
+    <Month>February</Month>
+    <Min_C>17</Min_C>
+    <Max_C>25</Max_C>
+    <Rain_mm>50</Rain_mm>
+    <Hurricane_Season>NO</Hurricane_Season>
+  </record>
+  <record>
+    <Month>Marx</Month>
+    <Min_C>19</Min_C>
+    <Max_C>28</Max_C>
+    <Rain_mm>40</Rain_mm>
+    <Hurricane_Season>NO</Hurricane_Season>
+  </record>
+  <record>
+    <Month>April</Month>
+    <Min_C>20</Min_C>
+    <Max_C>29</Max_C>
+    <Rain_mm>60</Rain_mm>
+    <Hurricane_Season>NO</Hurricane_Season>
+  </record>
+  <record>
+    <Month>Mai</Month>
+    <Min_C>21</Min_C>
+    <Max_C>30</Max_C>
+    <Rain_mm>110</Rain_mm>
+    <Hurricane_Season>NO</Hurricane_Season>
+  </record>
+  <record>
+    <Month>June</Month>
+    <Min_C>22</Min_C>
+    <Max_C>31</Max_C>
+    <Rain_mm>200</Rain_mm>
+    <Hurricane_Season>YES</Hurricane_Season>
+  </record>
+  <record>
+    <Month>July</Month>
+    <Min_C>23</Min_C>
+    <Max_C>32</Max_C>
+    <Rain_mm>140</Rain_mm>
+    <Hurricane_Season>YES</Hurricane_Season>
+  </record>
+  <record>
+    <Month>August</Month>
+    <Min_C>23</Min_C>
+    <Max_C>32</Max_C>
+    <Rain_mm>150</Rain_mm>
+    <Hurricane_Season>YES</Hurricane_Season>
+  </record>
+  <record>
+    <Month>September</Month>
+    <Min_C>23</Min_C>
+    <Max_C>31</Max_C>
+    <Rain_mm>190</Rain_mm>
+    <Hurricane_Season>YES</Hurricane_Season>
+  </record>
+  <record>
+    <Month>October</Month>
+    <Min_C>22</Min_C>
+    <Max_C>30</Max_C>
+    <Rain_mm>180</Rain_mm>
+    <Hurricane_Season>YES</Hurricane_Season>
+  </record>
+  <record>
+    <Month>November</Month>
+    <Min_C>20</Min_C>
+    <Max_C>33</Max_C>
+    <Rain_mm>60</Rain_mm>
+    <Hurricane_Season>YES</Hurricane_Season>
+  </record>
+  <record>
+    <Month>December</Month>
+    <Min_C>18</Min_C>
+    <Max_C>32</Max_C>
+    <Rain_mm>8</Rain_mm>
+    <Hurricane_Season>NO</Hurricane_Season>
+  </record>
+  <Source>http://www.insmet.cu/</Source>
+</data>

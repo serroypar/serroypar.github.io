@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--HERE WE THE HEAD WITH TITLE, AND ALSO LINKS AND META TAGS--> 
+    <head>
+        <title>My web</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Sergio Royuela">
+        <meta name="keywords" content="cuba, travel">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="w3.css">
+        <link rel="stylesheet" href="css/common_style.css">
+        <link rel="stylesheet" href="css/page1_style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    
+    <body>
+        <header class="container1">
+            <div  class="container_height col-4 col-s-6">
+                <h1 id="titulo">CUBA</h1>
+            </div>
+            
+            <div class= "container_height col-2 col-s-6">
+                <img src="images/index/flag_of_cuba.png" alt="Flag of Cuba">
+            </div>
+            
+            <nav class= "container_height col-6 col-s-12">
+                <ul class="container1 menu_movil menu_drop">
+                    <li><a href="#menu" class="size_icon"> <i class="fa fa-plane"></i> </a>
+                        <ul>
+                            <li><a href="index.html">Index</a></li>
+                            <li><a href="page1.html">When to visit</a></li>
+                            <li><a href="page2.html">Questionnaire and contact</a></li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="menu_pc menu_drop">
+                    <li class="container_height col-4 col-s-4"><a class="menu_pc_style" href="index.html">Index</a></li>
+                    <li class="container_height col-4 col-s-4"><a class="menu_pc_style" href="page1.html">When to visit</a></li>
+                    <li class="container_height col-4 col-s-4"><a class="menu_pc_style" href="page2.html">Questionnaire and contact</a></li>
+                    <li class="container_height col-4 col-s-4"><a class="menu_pc_style" href="gallery.html">Gallery</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="container1">
+            
+            <section class="col-6 col-s-11">
+                <h2>When to visit Cuba</h2>
+                <p>Cuba has a tropical climate, with a rainy season from June to November and a dry season from December to Mai. Average temperatures range from 24°C to 30°C, with the hottest months being in summer.
+                </p>
+                <p>The best time to visit Cuba depends on your preferences and planned activities. If you prefer milder temperatures and lower humidity, the dry season from December to Mai is a good option.
+                </p>
+                <p>On the other hand, if you want to enjoy beaches and water activities, the rainy season may be a suitable option, as temperatures are warmer and the sea water is at its warmest. However, you should be prepared for some rainy days during this season.
+                </p>
+                <p>In summary, the best time to visit Cuba will depend on your preferences and planned activities. If you're looking for cooler weather and cultural festivals, then the dry season is the best option. If you like the beach and water activities, the rainy season could be a suitable option for you.
+                </p>
+            </section>
+                        
+            <table class="col-6 col-s-11" id="dataTable"></table>
+
+        </main>
+        
+<!--HERE WE INCLUDED A BOOKMARK-->
+            <a href="#titulo"><img class="bookmark" src="images/red_star.png" alt="Bookmark"></a><p>Click to go up!</p>        
+       
+
+        <footer>
+            <p>Author: Sergio Royuela<br>
+                <a href="https://portal.edu.gva.es/iesserpis/">IES Serpis</a></p>
+                <details>
+                    <summary>Conselleria de Educació</summary>
+                    <p>The IES Serpis is a public education center that depends on the Generalitat Valenciana and that began teaching in 2003. ESO, baccalaureate and professional training are imported.</p>
+                </details>
+        </footer>
+        
+        <script>
+    window.addEventListener('load', function() {
+// JAVASCRIPT ACCESS TO THE XML DATA AND CREATE THE TABLE
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState === 4 && this.status === 200) {
+      var xmlDoc = this.responseXML;
+      var table = document.getElementById("dataTable");
+
+// JAVASCRIPT CREATES TABLE HEADER
+      var headerRow = document.createElement("tr");
+      var headers = xmlDoc.getElementsByTagName("record")[0].children;
+      for (var i = 0; i < headers.length; i++) {
+        var headerCell = document.createElement("th");
+        headerCell.textContent = headers[i].nodeName.replace("_", " ");
+        headerRow.appendChild(headerCell);
+      }
+      table.appendChild(headerRow);
+
+// JAVASCRIPT FILLS THE TABLE WITH DATE
+      var records = xmlDoc.getElementsByTagName("record");
+      for (var j = 0; j < records.length; j++) {
+        var record = records[j];
+        var dataRow = document.createElement("tr");
+        var dataCells = record.children;
+        for (var k = 0; k < dataCells.length; k++) {
+          var dataCell = document.createElement("td");
+          var cellValue = dataCells[k].textContent;
+          dataCell.textContent = cellValue;
+          
+// JAVASCRIPT APPLIES COLOR STYLES
+          if (k === 0) {
+            // APPLIES GREY TO "MONTHS"
+            dataCell.classList.add("grey");
+          } else if (k === 1) {
+            // APPLIES LIGHT-BLUE TO "MIN C"
+            dataCell.classList.add("light-blue");
+          } else if (k === 2) {
+            // APPLIES RED TO "MAX C"
+            dataCell.classList.add("red");
+          } else if (k === 3) {
+            // APPLIES BLUE TO "RAIN"
+            dataCell.classList.add("blue");
+          } else if (k === 4) {
+            // APPLIES GREEN TO CELLS WITH "NO"
+            if (cellValue === 'NO') {
+              dataCell.classList.add("green");
+            } else {
+              // APPLIES YELLOW TO CELLS WITH "YES"
+              dataCell.classList.add("yellow");
+            }
+          }
+          
+          dataRow.appendChild(dataCell);
+        }
+        table.appendChild(dataRow);
+      }
+
+      // JAVASCRIPT ADDS THE ROW WITH THE LINK
+      var linkRow = document.createElement("tr");
+      var linkCell = document.createElement("td");
+      linkCell.setAttribute("colspan", "5");
+      var link = document.createElement("a");
+      link.setAttribute("href", "http://www.insmet.cu/");
+      link.textContent = "Source: Instituto meteorológico de Cuba";
+      linkCell.appendChild(link);
+      linkRow.appendChild(linkCell);
+      table.appendChild(linkRow);
+    }
+  };
+
+  xhttp.open("GET", "table.xml", true);
+  xhttp.send();
+});
+            
+        </script>
+        
+    </body>
+</html>

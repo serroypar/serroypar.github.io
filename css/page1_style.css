@@ -1,0 +1,16 @@
+/* PAGE1 STYLE IS SET IN THESE LINES*/ 
+
+table, tr, th, td {text-align: center;
+        padding: 10px;}
+
+th {background-color:#537597 ; color:white}
+.grey{background-color: #edf0ef;}
+.light-blue {background-color: #c4ced8;}
+.red {background-color:#ED6A5A;}
+.blue {background-color: #3E78B2;}
+.green {background-color: #83BCA9;}
+.yellow {background-color: #E7E247;}
+
+section p{text-align:justify;
+        text-indent: 2em;
+}

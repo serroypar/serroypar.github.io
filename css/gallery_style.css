@@ -1,0 +1,12 @@
+/* GALLERY STYLE IS SET IN THESE LINES*/ 
+
+main img:hover {
+	filter: brightness(90%);
+	cursor:pointer;
+    border: 1px solid grey;
+}
+
+div.description {
+  padding: 15px;
+  text-align: center;
+}
